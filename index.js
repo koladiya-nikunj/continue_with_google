@@ -5,9 +5,7 @@ const app = express()
 require('./auth')
 const buttonHtml = require('./button');
 
-function isLoggedIn(req, res, next) {
-    req.user ? next() : res.sendStatus(401)
-}
+
 app.use(session({ secret: 'cats',resave:false,saveUninitialized:false }))
 app.use(passport.initialize())
 app.use(passport.session())
